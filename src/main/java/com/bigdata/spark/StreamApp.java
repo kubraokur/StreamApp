@@ -14,7 +14,7 @@ public class StreamApp {
         System.setProperty("hadoop.home.dir", "C:\\hadoop-common-2.2.0-bin-master");
         SparkSession session=SparkSession.builder().appName("Streaming").master("local").getOrCreate();
 
-    /*   try {
+      try {
 
             // Dosya kontrol
             File f = new File("C:\\Users\\maviyekubra.okur\\Desktop\\StreamPerson.csv");
@@ -28,7 +28,7 @@ public class StreamApp {
         }
         catch (IOException e) {
             System.err.println(e);
-        }*/
+        }
 
         StructType personType=new StructType().add("firstName", DataTypes.StringType).add("lastName", DataTypes.StringType).add("mail", DataTypes.StringType).add("gender", DataTypes.StringType).add("country", DataTypes.StringType);
         Dataset<Row> rawData = session.readStream().schema(personType).option("sep", ",").format("csv").load("file:///C:\\Users\\maviyekubra.okur\\Desktop\\test\\*.txt");
