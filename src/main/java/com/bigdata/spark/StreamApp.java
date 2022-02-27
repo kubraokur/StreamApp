@@ -8,6 +8,9 @@ import org.apache.spark.sql.streaming.StreamingQueryException;
 import org.apache.spark.sql.types.DataTypes;
 import org.apache.spark.sql.types.StructType;
 
+import java.io.File;
+import java.io.IOException;
+
 public class StreamApp {
 
     public static void main(String[] args) throws StreamingQueryException {
